@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Features | Personal Finance Tracker</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #00c9ff, #92fe9d);
+      color: #1c1f4a;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #1c1f4a;
+    }
+
+    p.intro {
+      text-align: center;
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-box {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      border-left: 5px solid #00b894;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .feature-box h3 {
+      margin-bottom: 10px;
+      color: #007bff;
+      transition: color 0.3s;
+    }
+
+    .feature-box p {
+      color: #444;
+    }
+
+    .feature-box:hover h3 {
+      color: #00c6ff;
+    }
+
+    .back-button {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-button a {
+      background: linear-gradient(45deg, #007bff, #00c6ff);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .back-button a:hover {
+      background: linear-gradient(45deg, #0056b3, #0090dd);
+      transform: scale(1.05);
+    }
+
+    .feature-box a {
+      color: #00c9ff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .feature-box a:hover {
+      color: #007bff;
+    }
+
+    .feature-section {
+      padding: 40px;
+      margin: 40px 0;
+      background: #f1f1f1;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-section h2 {
+      text-align: center;
+      color: #007bff;
+    }
+
+    .feature-section p {
+      font-size: 18px;
+      color: #555;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>What Can You Do?</h1>
+    <p class="intro">Explore the powerful features that make managing your money easier and smarter.</p>
+
+    <div class="features-grid">
+      <div class="feature-box">
+        <h3><a href="#income-expense">1. Add Income & Expenses</a></h3>
+        <p>Easily log financial entries with descriptions and live balance updates.</p>
+      </div>
+      <div class="feature-box">
+        <h3><a href="#real-time">2. Real-Time Balance</a></h3>
+        <p>Instantly see how each transaction affects your total balance.</p>
+      </div>
+      <div class="feature-box">
+        <h3><a href="#history">3. Smart Transaction History</a></h3>
+        <p>Quickly scan your recent activity in a clean, readable layout.</p>
+      </div>
+      <div class="feature-box">
+        <h3><a href="#mobile">4. Mobile Ready</a></h3>
+        <p>Use it on your phone, tablet, or desktop — anytime, anywhere.</p>
+      </div>
+      <div class="feature-box">
+        <h3><a href="#signup">5. No Sign-Up Needed</a></h3>
+        <p>Open the app and get started right away — no account or login required.</p>
+      </div>
+    </div>
+
+    <div id="income-expense" class="feature-section">
+      <h2>1. Add Income & Expenses</h2>
+      <p>Track your income and expenses by adding quick entries with descriptions and amounts. Easily categorize your transactions to gain insight into your spending habits.</p>
+    </div>
+
+    <div id="real-time" class="feature-section">
+      <h2>2. Real-Time Balance</h2>
+      <p>Your balance updates automatically every time you add a transaction, so you always know exactly how much money you have left.</p>
+    </div>
+
+    <div id="history" class="feature-section">
+      <h2>3. Smart Transaction History</h2>
+      <p>View your financial history in a neat, organized way, making it easy to understand your spending patterns and budget effectively.</p>
+    </div>
+
+    <div id="mobile" class="feature-section">
+      <h2>4. Mobile Ready</h2>
+      <p>The tracker works seamlessly across all devices, whether you're on your phone, tablet, or desktop, giving you access to your finances wherever you are.</p>
+    </div>
+
+    <div id="signup" class="feature-section">
+      <h2>5. No Sign-Up Needed</h2>
+      <p>No need to create an account — simply open the tracker, and you can start logging your transactions instantly. It's quick and easy!</p>
+    </div>
+
+    <div class="back-button">
+      <a href="home.html">← Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>

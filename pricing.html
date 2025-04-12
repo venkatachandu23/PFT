@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pricing | Finance Tracker</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top left, #f472b6, #60a5fa, #a78bfa);
+      background-attachment: fixed;
+      background-size: cover;
+      min-height: 100vh;
+      color: #1e293b;
+      padding: 60px 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Blurred floating blobs */
+    body::before,
+    body::after {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.3), transparent);
+      filter: blur(120px);
+      z-index: 0;
+      animation: float 10s ease-in-out infinite alternate;
+    }
+
+    body::before {
+      top: 0;
+      left: -100px;
+    }
+
+    body::after {
+      bottom: 0;
+      right: -100px;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-30px); }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #ffffff, #facc15);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pricing-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      padding: 40px 30px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+    }
+
+    .card.popular {
+      border-top: 6px solid #8b5cf6;
+    }
+
+    .badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background-color: #facc15;
+      color: #000;
+      font-size: 0.75rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    .card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .price {
+      font-size: 2.2rem;
+      color: #10b981;
+      margin-bottom: 20px;
+    }
+
+    .features {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+
+    .features li {
+      margin-bottom: 12px;
+      font-size: 1rem;
+      color: #374151;
+    }
+
+    .btn {
+      background: linear-gradient(to right, #6366f1, #8b5cf6);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+
+    .btn:hover {
+      background: linear-gradient(to right, #4f46e5, #7c3aed);
+    }
+
+    @media (max-width: 768px) {
+      .pricing-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Choose Your Plan</h1>
+
+  <div class="pricing-container">
+
+    <!-- Free Plan -->
+    <div class="card">
+      <h2>Free</h2>
+      <p class="price">$0 / month</p>
+      <ul class="features">
+        <li>✅ Track Expenses</li>
+        <li>✅ Monthly Report</li>
+        <li>✅ Email Reminders</li>
+      </ul>
+      <button class="btn" onclick="selectPlan('Free')">Start Free</button>
+    </div>
+
+    <!-- Pro Plan -->
+    <div class="card popular">
+      <div class="badge">Most Popular</div>
+      <h2>Pro</h2>
+      <p class="price">$9.99 / month</p>
+      <ul class="features">
+        <li>✅ All Free Features</li>
+        <li>✅ Set Budgets</li>
+        <li>✅ Spending Insights</li>
+      </ul>
+      <button class="btn" onclick="selectPlan('Pro')">Upgrade to Pro</button>
+    </div>
+
+    <!-- Premium Plan -->
+    <div class="card">
+      <h2>Premium</h2>
+      <p class="price">$19.99 / month</p>
+      <ul class="features">
+        <li>✅ All Pro Features</li>
+        <li>✅ Investment Tracking</li>
+        <li>✅ Priority Support</li>
+      </ul>
+      <button class="btn" onclick="selectPlan('Premium')">Go Premium</button>
+    </div>
+
+  </div>
+
+  <script>
+    function selectPlan(planName) {
+      alert("You selected the " + planName + " plan!");
+    }
+  </script>
+
+</body>
+</html>

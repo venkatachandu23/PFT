@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Finance Tracker</title>
+  <style>
+    /* Global reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling with a vibrant background */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 15px 0;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    .navbar a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .navbar a:hover {
+      color: #FFD700;
+    }
+
+    /* Finance Tracker Container */
+    .container {
+      margin-top: 80px; /* To avoid navbar overlap */
+      max-width: 600px;
+      margin: 100px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Orange Gradient */
+      color: #fff;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 32px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    #balance {
+      font-size: 24px;
+      margin: 20px 0;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Transaction Form */
+    form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input, select {
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background-color: #00bcd4; /* Cyan button */
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0097a7; /* Darker cyan on hover */
+    }
+
+    /* Transaction List */
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #fff;
+      margin: 5px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .income {
+      color: green;
+    }
+
+    .expense {
+      color: red;
+    }
+
+    /* New sections for scrolling content */
+    .scroll-section {
+      background-color: #ff6f61;
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+      margin-top: 50px;
+      border-radius: 10px;
+    }
+
+    .scroll-section img {
+      width: 80%;
+      max-width: 300px;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
+
+    .scroll-section h3 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .scroll-section p {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* Fade-in animation on scroll */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Responsiveness for mobile */
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 26px;
+      }
+
+      #balance {
+        font-size: 20px;
+      }
+
+      button {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      .scroll-section img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="home.html">Home</a>
+    <a href="transactions.html">Tracker</a>
+    <a href="#">About</a>
+  </div>
+
+  <!-- Finance Tracker Container -->
+  <div class="container">
+    <h2>Personal Finance Tracker</h2>
+
+    <!-- Balance Display -->
+    <div id="balance">Balance: $0.00</div>
+
+    <!-- Transaction Form -->
+    <form id="transaction-form">
+      <input type="text" id="desc" placeholder="Description" required>
+      <input type="number" id="amount" placeholder="Amount" required>
+      <select id="type">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+      <button type="submit">Add Transaction</button>
+    </form>
+
+    <!-- Transaction List -->
+    <ul id="transaction-list"></ul>
+  </div>
+
+  <!-- Scrollable Sections with Content -->
+  <div class="scroll-section fade-in">
+    <h3>Why Track Your Expenses?</h3>
+    <img src="https://via.placeholder.com/300" alt="Finance Image">
+    <p>Tracking your income and expenses is crucial for understanding where your money is going and ensuring that you are managing your finances effectively. This simple tool will help you make better financial decisions.</p>
+  </div>
+
+  <div class="scroll-section fade-in">
+    <h3>Stay on Top of Your Savings Goals</h3>
+    <img src="https://via.placeholder.com/300" alt="Savings Image">
+    <p>Setting and tracking savings goals helps you stay focused on your financial objectives. Use this tool to set and track your goals, and watch your savings grow over time!</p>
+  </div>
+
+  <script>
+    const form = document.getElementById('transaction-form');
+    const list = document.getElementById('transaction-list');
+    const balanceDisplay = document.getElementById('balance');
+    let balance = 0;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const desc = document.getElementById('desc').value;
+      const amount = parseFloat(document.getElementById('amount').value);
+      const type = document.getElementById('type').value;
+
+      const li = document.createElement('li');
+      li.classList.add(type === 'income' ? 'income' : 'expense');
+      li.textContent = `${desc} - $${amount.toFixed(2)}`;
+
+      list.appendChild(li);
+
+      // Update balance
+      if (type === 'income') {
+        balance += amount;
+      } else {
+        balance -= amount;
+      }
+
+      balanceDisplay.textContent = `Balance: $${balance.toFixed(2)}`;
+
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
